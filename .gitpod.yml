@@ -3,8 +3,7 @@ image:
 tasks:
   - name: initial
     init:
-      go install github.com/go-task/task/v3/cmd/task@latest &&
-      task init
+      go install github.com/go-task/task/v3/cmd/task@latest
 
 ports:
   - port: 5900

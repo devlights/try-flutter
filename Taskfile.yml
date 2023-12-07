@@ -10,8 +10,9 @@ tasks:
   init:
     desc: "プロジェクトを初期生成します"
     cmds:
-      - flutter create --project-name tryflutter .
+      - flutter create --sample=material.Scaffold.1 --project-name tryflutter . --overwrite
+      - git restore README.md
   clean:
     desc: "プロジェクト構成を削除してクリーンアップします"
     cmds:
-      - rm -rf build/ android/ ios/ lib/ linux/ macos/ test/ web/ windows/ pubspec.* .metadata analysis_options.yaml *.iml
+      - rm -rf .idea/ build/ android/ ios/ lib/ linux/ macos/ test/ web/ windows/ pubspec.* .metadata analysis_options.yaml *.iml
