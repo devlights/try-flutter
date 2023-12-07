@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    desc: "(Default) Show flutter version"
+    cmds:
+      - flutter --version
+  init:
+    desc: "プロジェクトを初期生成します"
+    cmds:
+      - flutter create --project-name tryflutter .
+  clean:
+    desc: "プロジェクト構成を削除してクリーンアップします"
+    cmds:
+      - rm -rf build/ android/ ios/ lib/ linux/ macos/ test/ web/ windows/ pubspec.* .metadata analysis_options.yaml *.iml
