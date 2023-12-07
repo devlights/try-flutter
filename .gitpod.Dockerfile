@@ -23,19 +23,29 @@ RUN install-packages openjdk-8-jdk -y \
 
 # Insall flutter and dependencies
 USER gitpod
-RUN wget -q "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz" -O - \
-    | tar xpJ -C "$HOME" \
-    && _file_name="commandlinetools-linux-8092744_latest.zip" && wget "https://dl.google.com/android/repository/$_file_name" \
-    && unzip "$_file_name" -d $ANDROID_HOME \
-    && rm -f "$_file_name" \
-    && mkdir -p $ANDROID_HOME/cmdline-tools/latest \
-    && mv $ANDROID_HOME/cmdline-tools/{bin,lib} $ANDROID_HOME/cmdline-tools/latest \
-    && yes | sdkmanager "platform-tools" "build-tools;31.0.0" "platforms;android-31" \
-    && flutter precache && for _plat in web linux-desktop; do flutter config --enable-${_plat}; done \
-    && flutter config --android-sdk $ANDROID_HOME \
+# RUN wget -q "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz" -O - | tar xpJ -C "$HOME" \
+#     && _file_name="commandlinetools-linux-8092744_latest.zip" && wget "https://dl.google.com/android/repository/$_file_name" \
+#     && unzip "$_file_name" -d $ANDROID_HOME \
+#     && rm -f "$_file_name" \
+#     && mkdir -p $ANDROID_HOME/cmdline-tools/latest \
+#     && mv $ANDROID_HOME/cmdline-tools/{bin,lib} $ANDROID_HOME/cmdline-tools/latest \
+#     && yes | sdkmanager "platform-tools" "build-tools;31.0.0" "platforms;android-31" \
+#     && flutter precache \
+#     && flutter config --enable-web \
+#     && flutter config --android-sdk $ANDROID_HOME \
+#     && flutter config --no-enable-macos-desktop \
+#     && flutter config --no-enable-windows-desktop \
+#     && flutter config --no-enable-ios \
+#     && dart --disable-analytics \
+#     && yes | flutter doctor --android-licenses \
+#     && flutter doctor
+RUN wget -q "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}.tar.xz" -O - | tar xpJ -C "$HOME" \
+    && flutter precache \
+    && flutter config --enable-web \
     && flutter config --no-enable-macos-desktop \
     && flutter config --no-enable-windows-desktop \
-    && flutter config --no-enable-android \
+    && flutter config --no-enable-linux-desktop \
     && flutter config --no-enable-ios \
-    && yes | flutter doctor --android-licenses \
+    && flutter config --no-enable-android \
+    && dart --disable-analytics \
     && flutter doctor

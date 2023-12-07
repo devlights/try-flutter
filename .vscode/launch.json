@@ -5,19 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "try-flutter",
+            "name": "debug",
             "request": "launch",
             "type": "dart",
-            "args": ["-d", "chrome"]
+            "flutterMode": "debug"
         },
         {
-            "name": "try-flutter (profile mode)",
+            "name": "profile",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "try-flutter (release mode)",
+            "name": "release",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
