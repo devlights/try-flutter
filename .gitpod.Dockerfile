@@ -33,5 +33,9 @@ RUN wget -q "https://storage.googleapis.com/flutter_infra_release/releases/stabl
     && yes | sdkmanager "platform-tools" "build-tools;31.0.0" "platforms;android-31" \
     && flutter precache && for _plat in web linux-desktop; do flutter config --enable-${_plat}; done \
     && flutter config --android-sdk $ANDROID_HOME \
+    && flutter config --no-enable-macos-desktop \
+    && flutter config --no-enable-windows-desktop \
+    && flutter config --no-enable-android \
+    && flutter config --no-enable-ios \
     && yes | flutter doctor --android-licenses \
     && flutter doctor
