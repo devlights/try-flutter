@@ -56,6 +56,8 @@ Debugging and Hot Reload features can be done normally. Thanks Gitpod!! :)
 
 ## References
 
+- [try-dart](https://github.com/devlights/try-dart)
+  - This is my TUTORIAL project for dart.
 - [gitpod-io/template-flutter](https://github.com/gitpod-io/template-flutter)
   - The gitpod.yml and gitpod.Dockerfile are copied from this repository.
   - ~~If used as is, apt-get will generate an error and the pre-build will not succeed, so I adjusted the Dockerfile based on the contents of https://github.com/gitpod-io/workspace-images/issues/872.~~
